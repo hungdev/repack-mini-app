@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // To run the app without the host app, change this to 'true'
-const STANDALONE = true;
+const STANDALONE = false;
 
 /**
  * Rspack configuration enhanced with Re.Pack defaults for React Native.
@@ -48,6 +48,9 @@ export default env => {
         dts: false,
         exposes: {
           './App': './App.tsx',
+        },
+        remotes: {
+          RepackHostApp: `RepackHostApp@http://localhost:9009/${platform}/RepackHostApp.container.js.bundle`,
         },
         shared: Object.fromEntries(
           Object.entries(pkg.dependencies).map(([dep, version]) => {
