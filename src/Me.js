@@ -7,6 +7,8 @@ import {addTodo} from '../store/todoSlice';
 export default function Me() {
   const dispatch = useAppDispatch();
   const todos = useAppSelector(state => state.todos?.list || []);
+  const state = useAppSelector(state => state);
+  console.log('state', state);
 
   const handleRemoveTodo = () => {
     dispatch(addTodo('cee'));
