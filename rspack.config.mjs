@@ -52,19 +52,27 @@ export default env => {
         remotes: {
           RepackHostApp: `RepackHostApp@http://localhost:9009/${platform}/RepackHostApp.container.js.bundle`,
         },
-        shared: Object.fromEntries(
-          Object.entries(pkg.dependencies).map(([dep, version]) => {
-            return [
-              dep,
-              {
-                singleton: true,
-                eager: STANDALONE,
-                requiredVersion: version,
-                version: version.replace('^', ''),
-              },
-            ];
-          }),
-        ),
+        shared: {
+          // Đảm bảo không tạo instance mới của SharedRedux
+          'RepackHostApp/SharedRedux': {
+            singleton: true,
+            eager: false, // Quan trọng: Không load ngay, đợi host provide
+          },
+          // Share dependencies
+          ...Object.fromEntries(
+            Object.entries(pkg.dependencies).map(([dep, version]) => {
+              return [
+                dep,
+                {
+                  singleton: true,
+                  eager: STANDALONE,
+                  requiredVersion: version,
+                  version: version.replace('^', ''),
+                },
+              ];
+            }),
+          ),
+        },
       }),
       // Supports for new architecture - Hermes can also use JS, it's not a requirement,
       // it will still work the same but it's for performance optimization
