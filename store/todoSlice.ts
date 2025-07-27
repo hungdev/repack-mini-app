@@ -54,7 +54,7 @@ export const todoSlice = createSlice({
 });
 
 // Add reducer ngay khi import slice
-addReducer('todos', todoSlice.reducer);
+// addReducer('todos', todoSlice.reducer);
 
 export const {
   addTodo,

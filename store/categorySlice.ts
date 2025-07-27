@@ -64,7 +64,7 @@ export const categorySlice = createSlice({
   },
 });
 
-addReducer('category', categorySlice.reducer);
+// addReducer('category', categorySlice.reducer);
 
 export const {
   setLoading,

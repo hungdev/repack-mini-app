@@ -15,11 +15,11 @@ export default function Me() {
   console.log('user', user);
 
   const handleRemoveTodo = () => {
-    dispatch(addTodo('cee'));
+    dispatch(addTodo('hello cee'));
   };
   return (
     <View>
-      <Text>Me</Text>
+      <Text>Me: {JSON.stringify(user)}</Text>
       {todos.map((todo, index) => (
         <Text key={index} style={{fontSize: 16, marginVertical: 4}}>
           {todo.text} - {todo.completed ? 'Completed' : 'Pending'}
