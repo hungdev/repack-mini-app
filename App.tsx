@@ -1,25 +1,19 @@
-import React, {useEffect} from 'react';
+import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
+import {Provider} from 'react-redux';
+import RootStack from './src/RootStack';
+// import {StoreProvider} from './src/shared';
+// import {store} from './src/redux'; // Adjust the import path as necessary
+import {store} from 'na-components'; // Adjust the import path as necessary
 
-// import HomeScreen from './src/HomeScreen';
-import Me from './src/Me';
-// import {store} from './src/store';
-import {StoreProvider} from 'RepackHostApp/SharedRedux';
-// const StoreProvider = React.lazy(() => import('RepackHostApp/SharedRedux'));
-import {initMiniAppStore, cleanupMiniAppStore} from './src/store';
-
-export default function App() {
-  useEffect(() => {
-    // Initialize mini app store
-    initMiniAppStore();
-
-    // // Cleanup when component unmounts
-    // return () => {
-    //   cleanupMiniAppStore(); // ⭐ This is the cleanup function!
-    // };
-  }, []);
+function App(): React.JSX.Element {
   return (
-    <StoreProvider>
-      <Me />
-    </StoreProvider>
+    <Provider store={store}>
+      <NavigationContainer>
+        <RootStack />
+      </NavigationContainer>
+    </Provider>
   );
 }
+
+export default App;

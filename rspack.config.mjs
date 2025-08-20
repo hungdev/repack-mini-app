@@ -48,16 +48,21 @@ export default env => {
         dts: false,
         exposes: {
           './App': './App.tsx',
+          './AppContainer': './AppContainer.tsx',
+          './HomeScreen': './src/HomeScreen.tsx',
+          './RootStack': './src/RootStack.tsx',
+          './slices': './store/index.ts',
         },
         remotes: {
-          RepackHostApp: `RepackHostApp@http://localhost:9009/${platform}/RepackHostApp.container.js.bundle`,
+          // RepackHostApp: `RepackHostApp@http://localhost:9009/${platform}/RepackHostApp.container.js.bundle`,
+          // MiniAppSecond: `MiniAppSecond@http://localhost:9005/${platform}/MiniAppSecond.container.js.bundle`,
         },
         shared: {
           // Đảm bảo không tạo instance mới của SharedRedux
-          'RepackHostApp/SharedRedux': {
-            singleton: true,
-            eager: false, // Quan trọng: Không load ngay, đợi host provide
-          },
+          // 'RepackHostApp/SharedRedux': {
+          //   singleton: true,
+          //   eager: false, // Quan trọng: Không load ngay, đợi host provide
+          // },
           // Share dependencies
           ...Object.fromEntries(
             Object.entries(pkg.dependencies).map(([dep, version]) => {

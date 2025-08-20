@@ -1,6 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 // Import functions từ host
-import {addReducer} from 'RepackHostApp/SharedRedux';
+// import {addReducer} from 'RepackHostApp/SharedRedux';
 
 interface TodoItem {
   id: number;

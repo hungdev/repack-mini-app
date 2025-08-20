@@ -1,17 +1,30 @@
 import {View, Text, Button} from 'react-native';
-import React from 'react';
-
-import {
-  useAppDispatch,
-  useAppSelector,
-  getReducers,
-} from 'RepackHostApp/SharedRedux';
+import React, {useEffect, useState} from 'react';
 import {addTodo} from '../store/todoSlice';
+import {useDispatch, useSelector} from 'react-redux';
 
 export default function Me() {
-  const dispatch = useAppDispatch();
-  const todos = useAppSelector(state => state.todos?.list || []);
-  const user = useAppSelector(state => state.user.name);
+  // const [sharedRedux, setSharedRedux] = useState(null);
+
+  // useEffect(() => {
+  //   const loadSharedRedux = async () => {
+  //     const module = await import('RepackHostApp/SharedRedux');
+  //     setSharedRedux(module);
+  //   };
+  //   loadSharedRedux();
+  // }, []);
+
+  // if (!sharedRedux) {
+  //   return (
+  //     <View>
+  //       <Text>Loading...</Text>
+  //     </View>
+  //   );
+  // }
+
+  const dispatch = useDispatch();
+  const todos = useSelector(state => state.miniApp?.todos?.list || []);
+  const user = useSelector(state => state.miniApp?.user.name);
   console.log('user', user);
 
   const handleRemoveTodo = () => {
@@ -29,7 +42,7 @@ export default function Me() {
       <Button
         title="getReducers"
         onPress={() => {
-          console.log('getReducers', getReducers());
+          // console.log('getReducers', sharedRedux.getReducers());
         }}
       />
     </View>

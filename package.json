@@ -13,19 +13,48 @@
     "bundle-android": "react-native bundle --config rspack.config.mjs --platform android --entry-file index.js --dev=false --bundle-output build/generated/android/index.bundle --assets-dest build/generated/android"
   },
   "dependencies": {
-    "@react-navigation/native": "^7.1.14",
-    "@react-navigation/native-stack": "^7.3.21",
-    "@reduxjs/toolkit": "^2.8.2",
+    "@ant-design/icons-react-native": "2.3.2",
+    "@ant-design/react-native": "5.4.3",
+    "@react-native-async-storage/async-storage": "2.1.2",
+    "@react-native-documents/picker": "10.1.5",
+    "@react-native-documents/viewer": "1.0.1",
+    "@react-native-vector-icons/common": "12.0.0",
+    "@react-native-vector-icons/fontawesome6": "12.0.0",
+    "@react-native-vector-icons/ionicons": "12.3.0",
+    "@react-navigation/bottom-tabs": "7.3.13",
+    "@react-navigation/native": "7.1.9",
+    "@react-navigation/native-stack": "7.3.13",
+    "@reduxjs/toolkit": "2.8.2",
+    "axios": "1.9.0",
+    "dayjs": "1.11.13",
+    "i18next": "25.2.0",
+    "immer": "10.1.1",
+    "na-components": "file:../../na-components/na-components-1.0.4.tgz",
     "react": "19.0.0",
+    "react-hook-form": "7.58.1",
+    "react-i18next": "15.5.1",
     "react-native": "0.79.2",
-    "react-native-safe-area-context": "^5.5.0",
-    "react-native-screens": "^4.11.1",
-    "react-redux": "^9.2.0"
+    "react-native-config": "1.5.6",
+    "react-native-element-dropdown": "2.12.4",
+    "react-native-gesture-handler": "2.28.0",
+    "react-native-linear-gradient": "2.8.3",
+    "react-native-localize": "3.4.1",
+    "react-native-pager-view": "6.8.1",
+    "react-native-reanimated": "3.19.0",
+    "react-native-safe-area-context": "5.4.0",
+    "react-native-screens": "4.10.0",
+    "react-native-size-matters": "0.4.2",
+    "react-native-size-scaling": "0.5.4",
+    "react-native-tab-view": "4.1.2",
+    "react-redux": "9.2.0",
+    "redux-persist": "6.0.0",
+    "yup": "1.6.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.25.2",
-    "@babel/preset-env": "^7.25.3",
-    "@babel/runtime": "^7.25.0",
+    "@babel/core": "7.25.2",
+    "@babel/preset-env": "7.25.3",
+    "@babel/preset-typescript": "7.27.1",
+    "@babel/runtime": "7.25.0",
     "@callstack/repack": "^5.1.2",
     "@module-federation/enhanced": "^0.15.0",
     "@react-native-community/cli": "18.0.0",
@@ -35,19 +64,37 @@
     "@react-native/eslint-config": "0.79.2",
     "@react-native/metro-config": "0.79.2",
     "@react-native/typescript-config": "0.79.2",
+    "@rnx-kit/align-deps": "^3.2.1",
     "@rspack/core": "^1.3.4",
     "@swc/helpers": "^0.5.17",
-    "@types/jest": "^29.5.13",
-    "@types/react": "^19.0.0",
-    "@types/react-test-renderer": "^19.0.0",
+    "@types/jest": "29.5.13",
+    "@types/react": "19.0.0",
+    "@types/react-test-renderer": "19.0.0",
     "ajv": "^7.2.4",
-    "eslint": "^8.19.0",
-    "jest": "^29.6.3",
+    "babel-plugin-module-resolver": "5.0.2",
+    "eslint": "8.19.0",
+    "jest": "29.6.3",
+    "metro-react-native-babel-preset": "0.77.0",
     "prettier": "2.8.8",
     "react-test-renderer": "19.0.0",
+    "reactotron-react-native": "5.1.13",
     "typescript": "5.0.4"
   },
   "engines": {
     "node": ">=18"
+  },
+  "rnx-kit": {
+    "kitType": "app",
+    "alignDeps": {
+      "presets": [
+        "./node_modules/lib-management/preset"
+      ],
+      "requirements": [
+        "lib-management@0.0.1"
+      ],
+      "capabilities": [
+        "super-app"
+      ]
+    }
   }
 }
